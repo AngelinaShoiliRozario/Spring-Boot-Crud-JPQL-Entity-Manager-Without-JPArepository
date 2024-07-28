@@ -17,7 +17,7 @@ public class CrudPractice1Application {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){ //Parameters will hold all the autowired components for future use
 		return runner->{
 			System.out.println("THIS LINE WILL EXECUTE INITIALLY AFTER THE APP HAS BEEN STARTED!");
-			studentDAO.printAll();
+			// studentDAO.printAll();
 		};
 	}
 
