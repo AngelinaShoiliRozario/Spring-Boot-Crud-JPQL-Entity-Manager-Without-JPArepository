@@ -27,17 +27,17 @@ public class StudentController {
         studentDAO.printAll();
     }
 
-    // using PATH variable
+    // using PATH VARIABLE.
     @GetMapping("/delete/{id}")
     public void deletebypath(@PathVariable("id") int id){
         studentDAO.deleteEntityManager(id);
     }
 
-    // using PATH variable
+    // using REQUEST PARAM variable.
     @GetMapping("/delete")
     public void deletepyparam(@RequestParam("id") int id){
         studentDAO.deleteJPQL(id);
     }
 
-    
+
 }
