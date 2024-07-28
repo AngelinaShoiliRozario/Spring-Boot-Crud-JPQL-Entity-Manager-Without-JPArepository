@@ -35,9 +35,24 @@ public class StudentController {
 
     // using REQUEST PARAM variable.
     @GetMapping("/delete")
-    public void deletepyparam(@RequestParam("id") int id){
+    public void deletebyparam(@RequestParam("id") int id){
         studentDAO.deleteJPQL(id);
     }
+
+    // JPQL does not support Insert operations
+    // using PATH VARIABLE.
+    @GetMapping("/create/{name}/{age}/{marks}")
+    public void createbypath(@PathVariable("marks") double marks, @PathVariable("name") String name, @PathVariable("age") int age){
+        studentDAO.createEntityManager(name, age, marks);;
+    }
+
+    // using REQUEST PARAM variable.
+    @GetMapping("/create")
+    public void createbyparam(@RequestParam("name") String name, @RequestParam("age") int age, @RequestParam("marks") double marks){
+        studentDAO.createEntityManager(name, age, marks);
+    }
+
+
 
 
 }

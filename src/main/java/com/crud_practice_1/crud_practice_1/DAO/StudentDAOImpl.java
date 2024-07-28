@@ -13,11 +13,28 @@ import java.util.List;
 
 @Component
 public class StudentDAOImpl implements StudentDAO{
+
+
     EntityManager entityManager;
     public StudentDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
+    // Using ENTITY MANAGER
+    @Override
+    @Transactional
+    public void createEntityManager(String name, int age, double marks) {
+        Student student = new Student(name,age,marks);
+        entityManager.persist(student);
+        System.out.println("Student has been added "+ student.toString());
+    }
+    // Using JPQL
+    @Override
+    @Transactional
+    public void createJPQL(String name, int age, double marks) {
+        //there is no insert method in jpql
+    }
+    
     @Override
     public void add(String name, int age, double marks) {
         Student s1 = new Student(name, age, marks);
@@ -35,7 +52,7 @@ public class StudentDAOImpl implements StudentDAO{
             System.out.println(student.toString());
         }
     }
-    //DELETE : JPQL
+    //DELETE : JPQL  //When deleting with condition or complex queryies
     @Override
     @Transactional
     public void deleteJPQL(int id) {
@@ -44,7 +61,7 @@ public class StudentDAOImpl implements StudentDAO{
         theQuery.executeUpdate();
     }
 
-    //DELETE : ENTITY MANAGER
+    //DELETE : ENTITY MANAGER //GOOD FOR SINGLE ITEM DELETE
     @Override
     @Transactional
     public void deleteEntityManager(int id) {
@@ -58,5 +75,7 @@ public class StudentDAOImpl implements StudentDAO{
     public void update(String name, int id) {
 
     }
+
+    
 
 }
