@@ -28,6 +28,9 @@ public class Student {
         Marks = marks;
     }
 
+    public Long getId() {
+        return Id;
+    }
     public String getName() {
         return Name;
     }

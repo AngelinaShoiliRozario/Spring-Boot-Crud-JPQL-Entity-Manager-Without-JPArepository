@@ -60,7 +60,6 @@ public class StudentDAOImpl implements StudentDAO {
 
     // UPDATE Entity Manager
     // For updating a single record
-    // Search By ID
     @Override
     @Transactional
     public void updateEntityManager(String name, int id) {
@@ -74,7 +73,6 @@ public class StudentDAOImpl implements StudentDAO {
 
     // UPDATE with JPQL
     // For updating multiple record for certain condition
-    // Search By Iteration
     @Override
     @Transactional
     public void updateJPQL(String name, int id) {
@@ -93,7 +91,6 @@ public class StudentDAOImpl implements StudentDAO {
 
     // DELETE : ENTITY MANAGER
     // GOOD FOR SINGLE ITEM DELETE
-    // DELETE By ID
     @Override
     @Transactional
     public void deleteEntityManager(int id) {
@@ -105,7 +102,6 @@ public class StudentDAOImpl implements StudentDAO {
 
     // DELETE : JPQL
     // When deleting multiple records with certain condition
-    // DELETE By Iteration
     @Override
     @Transactional
     public void deleteJPQL(int id) {
