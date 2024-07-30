@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.crud_practice_1.crud_practice_1.DAO.StudentDAO;
 import com.crud_practice_1.crud_practice_1.entity.Student;
-import com.crud_practice_1.crud_practice_1.entity.StudentNotFound;
 import com.crud_practice_1.crud_practice_1.exceptions.StudentNotFoundException;
 
 import jakarta.persistence.EntityManager;
@@ -48,9 +46,5 @@ public class StudentApiController {
         }
     }
 
-    @ExceptionHandler
-    public ResponseEntity<?> exceptionHandler(StudentNotFoundException exc){
-        StudentNotFound studentNotFound = new StudentNotFound(HttpStatus.NOT_FOUND.value(),exc.getMessage(),23322);
-        return new ResponseEntity<>(studentNotFound,HttpStatus.NOT_FOUND);
-    }
+    
 }

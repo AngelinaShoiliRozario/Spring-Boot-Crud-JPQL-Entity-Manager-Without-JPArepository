@@ -1,13 +1,6 @@
 package com.crud_practice_1.crud_practice_1.controllers;
 
 import com.crud_practice_1.crud_practice_1.DAO.StudentDAO;
-import com.crud_practice_1.crud_practice_1.entity.Student;
-
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
-
-import java.util.List;
-
 
 
 import org.springframework.web.bind.annotation.GetMapping;
