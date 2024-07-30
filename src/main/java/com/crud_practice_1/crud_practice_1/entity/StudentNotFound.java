@@ -1,6 +1,6 @@
 package com.crud_practice_1.crud_practice_1.entity;
 
-//No @entity has been used as its not related to any table of DB
+//No @entity has been used as it's not related to any table of DB
 //No @Table(...) and @Column has been used for the same reason
 
 public class StudentNotFound {
