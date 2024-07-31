@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.crud_practice_1.crud_practice_1.DAO.StudentDAO;
 import com.crud_practice_1.crud_practice_1.entity.Student;
-import com.crud_practice_1.crud_practice_1.exceptions.StudentNotFoundException;
+import com.crud_practice_1.crud_practice_1.exceptions.NotFoundException;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -42,7 +42,7 @@ public class StudentApiController {
             return new ResponseEntity<>(student, HttpStatus.OK);
         }else{
             //throwed a error
-            throw new StudentNotFoundException("Student Not Found On id- "+id);
+            throw new NotFoundException("Student Not Found On id- "+id);
         }
     }
 

@@ -17,9 +17,8 @@ public class EmployeeDAOImpl implements  EmployeeDAO{
     }
 
     @Override
-    public void create(String firstName, String lastName, String email) {
-        Employee employee = new Employee(firstName, lastName, email);
-        entityManager.persist(employee);
+    public Employee create(Employee employee) {
+        return entityManager.merge(employee);
     }
 
     @Override
@@ -36,17 +35,10 @@ public class EmployeeDAOImpl implements  EmployeeDAO{
     }
 
     @Override
-    public void deleteAEmployeeById(int id) {
-        Employee employee = entityManager.find(Employee.class, id);
+    public void deleteEmployee(Employee employee) {
         entityManager.remove(employee);        
     }
 
-    @Override
-    public void editAEmployeeById(int id, String newFirstName) {
-        Employee employee = entityManager.find(Employee.class, id);
-        employee.setFirstName(newFirstName);
-        entityManager.merge(employee);
-    }
 
     
 }
